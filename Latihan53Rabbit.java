@@ -11,54 +11,58 @@ Prodi    : Sistem informasi
 Semester : 3
  */
 public class Latihan53Rabbit {
-    public class Animal {
-    private boolean vegetarian;
-    private String eats;
-    private int noOfLegs;
+// class Animal sebagai kelas utama 
+    public static class Animal {
+        private boolean vegetarian;  // hewan vegetarian
+        private String eats;         // Jenis makanan
+        private int noOfLegs;        // Jumlah kaki
 
-    public Animal(boolean vegetarian, String eats, int noOfLegs) {
-        this.vegetarian = vegetarian;
-        this.eats = eats;
-        this.noOfLegs = noOfLegs;
+        // Konstruktor untuk inisialisasi 
+        public Animal(boolean vegetarian, String eats, int noOfLegs) {
+            this.vegetarian = vegetarian;
+            this.eats = eats;
+            this.noOfLegs = noOfLegs;
+        }
+
+        // Metode getter untuk mendapatkan informasi atribut hewan
+        public boolean isVegetarian() {
+            return vegetarian;
+        }
+
+        public String getEats() {
+            return eats;
+        }
+
+        public int getNoOfLegs() {
+            return noOfLegs;
+        }
     }
 
-    public boolean isVegetarian() {
-        return vegetarian;
+    // Class Rabbit sebagai subclass dari Animal
+    public static class Rabbit extends Animal {
+        private String name;  // Nama kelinci
+        private String color; // Warna kelinci
+
+        // Konstruktor untuk inisialisasi atribut-atribut kelinci dan atribut dari superclass Animal
+        public Rabbit(String name, boolean vegetarian, String eats, int noOfLegs, String color) {
+            super(vegetarian, eats, noOfLegs);
+            this.name = name;
+            this.color = color;
+        }
+
+        // Metode getter untuk mendapatkan informasi atribut kelinci
+        public String getName() {
+            return name;
+        }
+
+        public String getColor() {
+            return color;
+        }
     }
 
-    public String getEats() {
-        return eats;
-    }
-
-    public int getNoOfLegs() {
-        return noOfLegs;
-    }
-}
-    
-    public class Rabbit extends Animal {
-    private String name;
-    private String color;
-
-    public Rabbit(String name, boolean vegetarian, String eats, int noOfLegs, String color) {
-        super(vegetarian, eats, noOfLegs);
-        this.name = name;
-        this.color = color;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getColor() {
-        return color;
-    }
-}
-
-    /**
-     * @param args the command line arguments
-     */
-
+    // Metode utama untuk pengujian fungsionalitas kelas Animal dan Rabbit
     public static void main(String[] args) {
+        // Menampilkan informasi tentang kelinci "Peter"
         Rabbit peter = new Rabbit("Peter", false, "grass", 4, "grey");
         System.out.println("Hello, His name is Peter");
         System.out.println("Peter is Vegetarian? " + peter.isVegetarian());
